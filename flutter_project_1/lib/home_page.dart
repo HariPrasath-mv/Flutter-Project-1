@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bill_payment_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -55,13 +56,22 @@ class HomePage extends StatelessWidget {
                     crossAxisCount: 3,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [
-                      ServiceTile(icon: Icons.payment, label: 'Bill Payments'),
-                      ServiceTile(icon: Icons.shopping_cart, label: 'Grocery'),
-                      ServiceTile(icon: Icons.build, label: 'Consumer Service'),
-                      ServiceTile(icon: Icons.card_giftcard, label: 'Consumer Products'),
-                      ServiceTile(icon: Icons.restaurant, label: 'Food Order'),
-                      ServiceTile(icon: Icons.more_horiz, label: 'View More'),
+                    children: [
+                      ServiceTile(
+                        icon: Icons.payment,
+                        label: 'Bill Payments',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => BillPaymentPage()),
+                          );
+                        },
+                      ),
+                      const ServiceTile(icon: Icons.shopping_cart, label: 'Grocery'),
+                      const ServiceTile(icon: Icons.build, label: 'Consumer Service'),
+                      const ServiceTile(icon: Icons.card_giftcard, label: 'Consumer Products'),
+                      const ServiceTile(icon: Icons.restaurant, label: 'Food Order'),
+                      const ServiceTile(icon: Icons.more_horiz, label: 'View More'),
                     ],
                   ),
                 ],
@@ -94,20 +104,24 @@ class HomePage extends StatelessWidget {
 class ServiceTile extends StatelessWidget {
   final IconData icon;
   final String label;
+  final VoidCallback? onTap;
 
-  const ServiceTile({super.key, required this.icon, required this.label});
+  const ServiceTile({super.key, required this.icon, required this.label, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 40),
-          const SizedBox(height: 8.0),
-          Text(label, textAlign: TextAlign.center),
-        ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 40),
+            const SizedBox(height: 8.0),
+            Text(label, textAlign: TextAlign.center),
+          ],
+        ),
       ),
     );
   }
