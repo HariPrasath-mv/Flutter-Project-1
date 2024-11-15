@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'bill_payment_page.dart';
+import 'grocery_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -67,7 +68,16 @@ class HomePage extends StatelessWidget {
                           );
                         },
                       ),
-                      const ServiceTile(icon: Icons.shopping_cart, label: 'Grocery'),
+                      ServiceTile(
+                        icon: Icons.shopping_cart,
+                        label: 'Grocery',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const GroceryPage()),
+                          );
+                        },
+                      ),
                       const ServiceTile(icon: Icons.build, label: 'Consumer Service'),
                       const ServiceTile(icon: Icons.card_giftcard, label: 'Consumer Products'),
                       const ServiceTile(icon: Icons.restaurant, label: 'Food Order'),
