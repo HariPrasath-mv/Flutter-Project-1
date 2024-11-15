@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'bill_payment_page.dart';
 import 'grocery_page.dart';
+import 'consumer_service_page.dart';
+import 'consumer_products_page.dart';
+import 'food_order_page.dart';
+import 'view_more_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,7 +18,8 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage('https://example.com/profile.jpg'), // Replace with your profile image URL or asset
+              backgroundImage: NetworkImage(
+                  'https://example.com/profile.jpg'), // Replace with your profile image URL or asset
             ),
           ),
         ],
@@ -64,7 +69,8 @@ class HomePage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => BillPaymentPage()),
+                            MaterialPageRoute(
+                                builder: (context) => BillPaymentPage()),
                           );
                         },
                       ),
@@ -74,14 +80,46 @@ class HomePage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const GroceryPage()),
+                            MaterialPageRoute(
+                                builder: (context) => const GroceryPage()),
                           );
                         },
                       ),
-                      const ServiceTile(icon: Icons.build, label: 'Consumer Service'),
-                      const ServiceTile(icon: Icons.card_giftcard, label: 'Consumer Products'),
-                      const ServiceTile(icon: Icons.restaurant, label: 'Food Order'),
-                      const ServiceTile(icon: Icons.more_horiz, label: 'View More'),
+                      ServiceTile(
+                        icon: Icons.build,
+                        label: 'Consumer Service',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ConsumerServicePage()),
+                          );
+                        },
+                      ),
+                      ServiceTile(
+                        icon: Icons.card_giftcard,
+                        label: 'Consumer Products',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ConsumerProductsPage()),
+                          );
+                        },
+                      ),
+                      ServiceTile(
+                        icon: Icons.restaurant,
+                        label: 'Food Order',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FoodOrderPage()),
+                          );
+                        },
+                      ),
+                      ServiceTile( icon: Icons.more_horiz, label: 'View More', onTap: () { Navigator.push( context, MaterialPageRoute(builder: (context) => ViewMorePage()), ); }, ),
                     ],
                   ),
                 ],
@@ -116,7 +154,8 @@ class ServiceTile extends StatelessWidget {
   final String label;
   final VoidCallback? onTap;
 
-  const ServiceTile({super.key, required this.icon, required this.label, this.onTap});
+  const ServiceTile(
+      {super.key, required this.icon, required this.label, this.onTap});
 
   @override
   Widget build(BuildContext context) {
