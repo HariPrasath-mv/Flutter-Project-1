@@ -7,6 +7,7 @@ class ConsumerServicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF0065FD),
         title: const Text('Consumer Service'),
       ),
       body: const Center(

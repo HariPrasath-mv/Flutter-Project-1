@@ -27,6 +27,7 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF0065FD),
         title: const Text('Bill Payments'),
       ),
       body: Padding(

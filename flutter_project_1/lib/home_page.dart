@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ACE'),
+        backgroundColor: const Color(0xFF0065FD),
+        title: const Text('Welcome, User!'),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -70,7 +71,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => BillPaymentPage()),
+                                builder: (context) => const BillPaymentPage()),
                           );
                         },
                       ),
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const GroceryPage()),
+                                builder: (context) => GroceryPage()),
                           );
                         },
                       ),
@@ -104,7 +105,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ConsumerProductsPage()),
+                                builder: (context) => const ConsumerProductsPage()),
                           );
                         },
                       ),
@@ -119,7 +120,7 @@ class HomePage extends StatelessWidget {
                           );
                         },
                       ),
-                      ServiceTile( icon: Icons.more_horiz, label: 'View More', onTap: () { Navigator.push( context, MaterialPageRoute(builder: (context) => ViewMorePage()), ); }, ),
+                      ServiceTile( icon: Icons.more_horiz, label: 'View More', onTap: () { Navigator.push( context, MaterialPageRoute(builder: (context) => const ViewMorePage()), ); }, ),
                     ],
                   ),
                 ],
