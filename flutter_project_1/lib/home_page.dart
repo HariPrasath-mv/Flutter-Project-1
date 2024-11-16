@@ -15,6 +15,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
+        title: const Text(
+          "Welcome, User!",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
         leading: const Icon(Icons.arrow_back_ios, color: Colors.black),
         actions: const [
           Padding(
@@ -34,34 +42,44 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Welcome, User!",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 16),
                 TextField(
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.search),
                     hintText: 'Search here',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(100),
                     ),
                   ),
                 ),
                 const SizedBox(height: 16),
                 Container(
+                  height: 120, // Reduced height
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const ListTile(
-                    title: Text(
-                      'My Unit',
-                      style: TextStyle(color: Colors.white),
+                  child: ListTile(
+                    title: Container(
+                      margin:
+                          const EdgeInsets.only(top: 8.0), // Adjusted margin
+                      child: const Text(
+                        'My Unit',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    subtitle: Text(
-                      'My Community',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    subtitle: Container(
+                      margin:
+                          const EdgeInsets.only(top: 4.0), // Adjusted margin
+                      child: const Text(
+                        'My Community',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
@@ -69,16 +87,27 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: GridView.count(
-              crossAxisCount: 3,
-              children: [
-                buildMenuItem(context, Icons.payment, 'Bill Payments', const BillPaymentPage()),
-                buildMenuItem(context, Icons.shopping_cart, 'Grocery', GroceryPage()),
-                buildMenuItem(context, Icons.support, 'Service', const ConsumerServicePage()),
-                buildMenuItem(context, Icons.category, 'Products', const ConsumerProductsPage()),
-                buildMenuItem(context, Icons.restaurant, 'Dining', FoodOrderPage()), // Placeholder
-                buildMenuItem(context, Icons.more_horiz, 'View More', const ViewMorePage()), // Placeholder
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: GridView.count(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+                children: [
+                  buildMenuItem(context, Icons.payment, 'Bill Payments',
+                      const BillPaymentPage()),
+                  buildMenuItem(
+                      context, Icons.shopping_cart, 'Grocery', GroceryPage()),
+                  buildMenuItem(context, Icons.support, 'Service',
+                      const ConsumerServicePage()),
+                  buildMenuItem(context, Icons.category, 'Products',
+                      const ConsumerProductsPage()),
+                  buildMenuItem(context, Icons.restaurant, 'Dining',
+                      FoodOrderPage()), // Placeholder
+                  buildMenuItem(context, Icons.more_horiz, 'View More',
+                      const ViewMorePage()), // Placeholder
+                ],
+              ),
             ),
           ),
           Container(
@@ -106,7 +135,8 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildMenuItem(BuildContext context, IconData icon, String title, Widget page) {
+  Widget buildMenuItem(
+      BuildContext context, IconData icon, String title, Widget page) {
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -114,13 +144,30 @@ class HomePage extends StatelessWidget {
           MaterialPageRoute(builder: (context) => page),
         );
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 40, color: Colors.blue),
-          const SizedBox(height: 8),
-          Text(title, textAlign: TextAlign.center),
-        ],
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1), // Updated drop shadow
+              spreadRadius: 1,
+              blurRadius: 1,
+              offset: Offset(0, 1), // Changes position of shadow
+            ),
+          ],
+        ),
+        padding: const EdgeInsets.all(12.0), // Reduced padding
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 30, color: Colors.blue), // Reduced icon size
+            const SizedBox(height: 4),
+            Text(title,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14)), // Reduced text size
+          ],
+        ),
       ),
     );
   }

@@ -16,7 +16,7 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
   final Map<String, double> sampleValues = {
     'Electricity': 100.0,
     'Water': 50.0,
-    'Internet': 75.0,
+    'Internet': 500.0,
     'Phone': 30.0,
     'Cable TV': 45.0,
   };
@@ -73,7 +73,9 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const UpiPaymentPage(),
+                        builder: (context) => UpiPaymentPage(
+                            totalAmount:
+                                totalBalance), // Pass total balance here
                       ),
                     );
                   },
@@ -85,7 +87,8 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const WalletPaymentPage(),
+                        builder: (context) =>
+                            WalletPaymentPage(totalAmount: totalBalance),
                       ),
                     );
                   },
