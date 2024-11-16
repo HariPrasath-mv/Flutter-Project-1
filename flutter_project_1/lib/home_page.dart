@@ -16,14 +16,15 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: const Text(
-          "Welcome, User!",
+          'This is Urbanist Font',
           style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontFamily: 'Urbanist',
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
             color: Colors.black,
           ),
         ),
-        leading: const Icon(Icons.arrow_back_ios, color: Colors.black),
+        leading: const Icon(Icons.arrow_back_ios, color: Colors.black87),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -38,61 +39,102 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Search Bar
                 TextField(
                   decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search, color: Colors.black54),
                     hintText: 'Search here',
+                    hintStyle: const TextStyle(color: Colors.black54),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100),
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide.none,
                     ),
+                    filled: true,
+                    fillColor: Colors.grey[200],
                   ),
                 ),
                 const SizedBox(height: 16),
+                // Community Card
                 Container(
-                  height: 120, // Reduced height
+                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
-                  child: ListTile(
-                    title: Container(
-                      margin:
-                          const EdgeInsets.only(top: 8.0), // Adjusted margin
-                      child: const Text(
-                        'My Unit',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        padding: const EdgeInsets.all(8),
+                        child: const Icon(
+                          Icons.home,
+                          size: 40,
+                          color: Colors.blueAccent,
+                        ),
                       ),
-                    ),
-                    subtitle: Container(
-                      margin:
-                          const EdgeInsets.only(top: 4.0), // Adjusted margin
-                      child: const Text(
-                        'My Community',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                      const SizedBox(width: 16),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'My Unit',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'My Community',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Join Now',
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          // Grid Menu
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: GridView.count(
                 crossAxisCount: 3,
-                crossAxisSpacing: 8.0,
-                mainAxisSpacing: 8.0,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
                 children: [
                   buildMenuItem(context, Icons.payment, 'Bill Payments',
                       const BillPaymentPage()),
@@ -102,34 +144,39 @@ class HomePage extends StatelessWidget {
                       const ConsumerServicePage()),
                   buildMenuItem(context, Icons.category, 'Consumer Products',
                       const ConsumerProductsPage()),
-                  buildMenuItem(context, Icons.restaurant, 'Dining',
-                      FoodOrderPage()), // Placeholder
+                  buildMenuItem(
+                      context, Icons.restaurant, 'Dining', FoodOrderPage()),
                   buildMenuItem(context, Icons.more_horiz, 'View More',
-                      const ViewMorePage()), // Placeholder
+                      const ViewMorePage()),
                 ],
               ),
             ),
           ),
+          // Notification Banner
           Container(
-            color: Colors.red[50],
+            color: Colors.red.shade100,
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
             child: Row(
               children: [
-                const Icon(Icons.warning, color: Colors.red),
+                const Icon(Icons.warning_rounded, color: Colors.red),
                 const SizedBox(width: 8),
                 const Expanded(
                   child: Text(
                     'Important: Maintenance Schedule for Tomorrow!',
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close, color: Colors.red),
+                  icon: const Icon(Icons.close_rounded, color: Colors.red),
                   onPressed: () {},
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -147,25 +194,37 @@ class HomePage extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1), // Updated drop shadow
-              spreadRadius: 1,
-              blurRadius: 1,
-              offset: Offset(0, 1), // Changes position of shadow
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 8,
+              offset: const Offset(0, 4),
             ),
           ],
         ),
-        padding: const EdgeInsets.all(12.0), // Reduced padding
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 30, color: Colors.blue), // Reduced icon size
-            const SizedBox(height: 4),
-            Text(title,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14)), // Reduced text size
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.1),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(icon, size: 28, color: Colors.blue),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ),
