@@ -4,7 +4,6 @@ import 'grocery_page.dart';
 import 'consumer_service_page.dart';
 import 'consumer_products_page.dart';
 import 'food_order_page.dart';
-import 'view_more_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -110,14 +109,14 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8),
-                          Text(
-                            'Join Now',
-                            style: TextStyle(
-                              color: Colors.white70,
-                              fontSize: 12,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
+                          // Text(
+                          //   'Join Now',
+                          //   style: TextStyle(
+                          //     color: Colors.white70,
+                          //     fontSize: 12,
+                          //     decoration: TextDecoration.underline,
+                          //   ),
+                          // ),
                         ],
                       )
                     ],
@@ -145,26 +144,24 @@ class HomePage extends StatelessWidget {
                   buildMenuItem(context, Icons.category, 'Consumer Products',
                       const ConsumerProductsPage()),
                   buildMenuItem(
-                      context, Icons.restaurant, 'Dining', FoodOrderPage()),
-                  buildMenuItem(context, Icons.more_horiz, 'View More',
-                      const ViewMorePage()),
+                      context, Icons.restaurant, 'Order Food', FoodOrderPage()),
                 ],
               ),
             ),
           ),
           // Notification Banner
           Container(
-            color: Colors.red.shade100,
+            color: const Color(0xFFA4C4F5),
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
             child: Row(
               children: [
-                const Icon(Icons.warning_rounded, color: Colors.red),
+                const Icon(Icons.message, color: Color(0xFF0065FD)),
                 const SizedBox(width: 8),
                 const Expanded(
                   child: Text(
                     'Important: Maintenance Schedule for Tomorrow!',
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
@@ -197,7 +194,7 @@ class HomePage extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: const Color.fromARGB(255, 178, 213, 216).withOpacity(0.2),
               spreadRadius: 2,
               blurRadius: 8,
               offset: const Offset(0, 4),
@@ -214,7 +211,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.blue.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
-              child: Icon(icon, size: 28, color: Colors.blue),
+              child: Icon(icon, size: 30, color: Colors.blue),
             ),
             const SizedBox(height: 8),
             Text(

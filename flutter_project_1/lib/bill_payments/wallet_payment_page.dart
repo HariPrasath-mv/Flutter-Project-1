@@ -95,7 +95,7 @@ class _WalletPaymentPageState extends State<WalletPaymentPage> {
                         'You need ₹${amountNeeded.toStringAsFixed(2)} more to complete the payment.',
                         style: const TextStyle(fontSize: 16),
                       ),
-                      const SizedBox(height: 16.0),
+                      const SizedBox(width: 10.0, height: 14.0),
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
@@ -106,11 +106,13 @@ class _WalletPaymentPageState extends State<WalletPaymentPage> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF0065FD),
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 40.0, vertical: 16.0),
+                              horizontal: 18.0, vertical: 14.0),
                         ),
                         child: Text(
                           'Add ₹${amountNeeded.toStringAsFixed(2)} to Wallet',
-                          style: const TextStyle(fontSize: 16),
+                          style: const TextStyle(
+                              fontSize: 16,
+                              color: Color.fromARGB(255, 255, 255, 255)),
                         ),
                       ),
                     ],
@@ -149,7 +151,9 @@ class _WalletPaymentPageState extends State<WalletPaymentPage> {
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: const Text('OK'),
+                            child: const Text(
+                              'OK',
+                            ),
                           ),
                         ],
                       ),

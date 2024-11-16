@@ -46,7 +46,15 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
             Column(
               children: sampleValues.entries.map((entry) {
                 return BillCategoryTile(
-                  icon: getCategoryIcon(entry.key),
+                  icon: [
+                    'Electricity',
+                    'Water',
+                    'Internet',
+                    'Phone',
+                    'Cable TV'
+                  ].contains(entry.key)
+                      ? null // Pass null for these categories
+                      : getCategoryIcon(entry.key),
                   label: entry.key,
                   amount: entry.value,
                   formatter: formatter,
@@ -132,22 +140,25 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
 }
 
 class BillCategoryTile extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon; // Made icon nullable
   final String label;
   final double amount;
   final NumberFormat formatter;
 
-  const BillCategoryTile(
-      {super.key,
-      required this.icon,
-      required this.label,
-      required this.amount,
-      required this.formatter});
+  const BillCategoryTile({
+    super.key,
+    this.icon, // Made optional
+    required this.label,
+    required this.amount,
+    required this.formatter,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, size: 40),
+      leading: icon != null
+          ? Icon(icon, size: 40)
+          : null, // Show icon only if provided
       title: Text(label),
       trailing: Text(formatter.format(amount)),
       onTap: () {
