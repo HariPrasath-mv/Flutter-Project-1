@@ -55,6 +55,14 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/upi.png
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf 
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

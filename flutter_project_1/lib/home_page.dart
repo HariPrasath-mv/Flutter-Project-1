@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bill_payment_page.dart'; // Import separate pages
+import 'bill_payments/bill_payment_page.dart'; // Import separate pages
 import 'grocery_page.dart';
 import 'consumer_service_page.dart';
 import 'consumer_products_page.dart';
@@ -54,22 +54,14 @@ class HomePage extends StatelessWidget {
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: ListTile(
-                    title: const Text(
+                  child: const ListTile(
+                    title: Text(
                       'My Unit',
                       style: TextStyle(color: Colors.white),
                     ),
-                    subtitle: const Text(
+                    subtitle: Text(
                       'My Community',
                       style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    trailing: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.blue,
-                      ),
-                      child: const Text('Join Now'),
                     ),
                   ),
                 ),

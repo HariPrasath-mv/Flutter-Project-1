@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // Add this package for currency formatting
+import 'package:intl/intl.dart';
+import 'upi_payment_page.dart'; // Import UPI page
+import 'wallet_payment_page.dart'; // Import Wallet page
+import 'account_transfer_page.dart'; // Import Account Transfer page
 
 class BillPaymentPage extends StatefulWidget {
   const BillPaymentPage({super.key});
@@ -55,38 +58,51 @@ class _BillPaymentPageState extends State<BillPaymentPage> {
               'Total Payment Balance: ${formatter.format(totalBalance)}',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 32.0),
             const Text(
-              'Payment Details',
+              'Payment Methods',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16.0),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: 'Account Number',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 16.0),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: 'Amount',
-                border: OutlineInputBorder(),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 32.0),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  // Add payment logic here
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 40.0, vertical: 16.0),
+            Column(
+              children: [
+                PaymentMethodTile(
+                  icon: Icons.account_circle,
+                  label: 'UPI',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UpiPaymentPage(),
+                      ),
+                    );
+                  },
                 ),
-                child: const Text('Pay Now'),
-              ),
+                PaymentMethodTile(
+                  icon: Icons.account_balance_wallet,
+                  label: 'Wallet',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WalletPaymentPage(),
+                      ),
+                    );
+                  },
+                ),
+                PaymentMethodTile(
+                  icon: Icons.account_balance,
+                  label: 'Account Transfer',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AccountTransferPage(),
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),
@@ -134,6 +150,32 @@ class BillCategoryTile extends StatelessWidget {
       onTap: () {
         // Add navigation to specific bill payment page here if needed
       },
+    );
+  }
+}
+
+class PaymentMethodTile extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const PaymentMethodTile({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon, size: 40, color: Colors.blue),
+      title: Text(
+        label,
+        style: const TextStyle(fontSize: 18),
+      ),
+      trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
+      onTap: onTap,
     );
   }
 }
