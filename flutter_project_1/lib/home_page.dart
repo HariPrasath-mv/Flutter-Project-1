@@ -153,7 +153,7 @@ class HomePage extends StatelessWidget {
               color: Colors.black.withOpacity(0.1), // Updated drop shadow
               spreadRadius: 1,
               blurRadius: 1,
-              offset: Offset(0, 1), // Changes position of shadow
+              offset: const Offset(0, 1), // Changes position of shadow
             ),
           ],
         ),
@@ -165,7 +165,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 4),
             Text(title,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14)), // Reduced text size
+                style: const TextStyle(fontSize: 14)), // Reduced text size
           ],
         ),
       ),
