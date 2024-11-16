@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: const Text(
-          'This is Urbanist Font',
+          'Welcome, User!',
           style: TextStyle(
             fontFamily: 'Urbanist',
             fontSize: 20,
