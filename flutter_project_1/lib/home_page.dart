@@ -98,9 +98,9 @@ class HomePage extends StatelessWidget {
                       const BillPaymentPage()),
                   buildMenuItem(
                       context, Icons.shopping_cart, 'Grocery', GroceryPage()),
-                  buildMenuItem(context, Icons.support, 'Service',
+                  buildMenuItem(context, Icons.support, 'Consumer Service',
                       const ConsumerServicePage()),
-                  buildMenuItem(context, Icons.category, 'Products',
+                  buildMenuItem(context, Icons.category, 'Consumer Products',
                       const ConsumerProductsPage()),
                   buildMenuItem(context, Icons.restaurant, 'Dining',
                       FoodOrderPage()), // Placeholder
