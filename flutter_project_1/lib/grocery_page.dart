@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: use_key_in_widget_constructors
 class GroceryPage extends StatelessWidget {
   final List<Category> groceryCategories = [
     Category('Fresh Vegetables', Icons.local_florist),

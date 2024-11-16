@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: use_key_in_widget_constructors
 class FoodOrderPage extends StatelessWidget {
   final List<Category> popularRestaurants = [
     Category('Pizza Palace', Icons.local_pizza),

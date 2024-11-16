@@ -13,8 +13,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0065FD),
-        title: const Text('Welcome, User!'),
+        backgroundColor: const Color(0xFF0065FD), // Updated AppBar color
+        title: const Text('ACE'),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -41,7 +41,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              color: Colors.green[100],
+              margin: const EdgeInsets.symmetric(
+                  vertical: 16.0, horizontal: 16.0), // Added margin
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 179, 212, 255),
+                borderRadius:
+                    BorderRadius.circular(15.0), // Added border radius
+              ),
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
               child: const Column(
@@ -105,7 +111,8 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const ConsumerProductsPage()),
+                                builder: (context) =>
+                                    const ConsumerProductsPage()),
                           );
                         },
                       ),
@@ -120,14 +127,30 @@ class HomePage extends StatelessWidget {
                           );
                         },
                       ),
-                      ServiceTile( icon: Icons.more_horiz, label: 'View More', onTap: () { Navigator.push( context, MaterialPageRoute(builder: (context) => const ViewMorePage()), ); }, ),
+                      ServiceTile(
+                        icon: Icons.more_horiz,
+                        label: 'View More',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ViewMorePage()),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
             Container(
-              color: Colors.yellow[100],
+              margin: const EdgeInsets.symmetric(
+                  vertical: 16.0, horizontal: 16.0), // Added margin
+              decoration: BoxDecoration(
+                color: Colors.yellow[100],
+                borderRadius:
+                    BorderRadius.circular(12.0), // Added border radius
+              ),
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
               child: Column(
