@@ -64,6 +64,10 @@ flutter:
     - assets/images/facilities/badminton_court.png
     - assets/images/facilities/cricket_nets.png
     - assets/images/facilities/barbecue_pit.png
+    - assets/images/discover/
+    - assets/images/discover/sony_tv.png
+    - assets/images/discover/mattress.png
+    - assets/images/discover/comic_books.png
 
   fonts:
     - family: Urbanist
