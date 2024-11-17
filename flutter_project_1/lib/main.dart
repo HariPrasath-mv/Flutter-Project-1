@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart'; // Import the home page file
+// import 'gatekeeper_page/gatekeeper_page.dart'; 
+import 'facilities_page/facilities_page.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
         ),
       ),
-      home: const HomePage(), // Call the HomePage widget
+      home: FacilitiesPage(), // Call the HomePage widget
     );
   }
 }

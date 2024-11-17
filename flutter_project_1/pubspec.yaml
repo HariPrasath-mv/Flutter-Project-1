@@ -57,7 +57,14 @@ flutter:
   uses-material-design: true
   assets:
     - assets/fonts/
-    # - assets/icons/
+    - assets/images/facilities/
+    - assets/images/facilities/swimming_pool.png
+    - assets/images/facilities/squash_court.png
+    - assets/images/facilities/clubhouse.png
+    - assets/images/facilities/badminton_court.png
+    - assets/images/facilities/cricket_nets.png
+    - assets/images/facilities/barbecue_pit.png
+
   fonts:
     - family: Urbanist
       fonts:
