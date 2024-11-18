@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // import 'discover_page/discover_page.dart'; 
 // import 'facilities_page/facilities_page.dart'; 
 // import 'helpdesk_page/helpdesk_page.dart'; 
-import 'home_page.dart'; 
+import 'package:flutter_project_1/consumer_service_page/consumer_service_page.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
         ),
       ),
-      home: HomePage(), // Call the HomePage widget
+      home: ConsumerServicePage(), // Call the HomePage widget
     );
   }
 }
