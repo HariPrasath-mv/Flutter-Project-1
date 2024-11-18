@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.20.0
+  flutter_svg: ^1.1.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -68,6 +69,7 @@ flutter:
     - assets/images/discover/sony_tv.png
     - assets/images/discover/mattress.png
     - assets/images/discover/comic_books.png
+    - assets/icons/consumer_service/
 
   fonts:
     - family: Urbanist

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'bill_payments/bill_payment_page.dart'; // Import separate pages
 import 'grocery_page.dart';
-import 'consumer_service_page.dart';
+import 'consumer_service_page/consumer_service_page.dart';
 import 'consumer_products_page.dart';
 import 'food_order_page.dart';
 
